@@ -1,0 +1,36 @@
+---
+import { Icon } from "astro-iconify";
+
+const today = new Date();
+---
+
+<footer
+    class="mx-4 my-10 flex items-center justify-between border-t border-inksoft pt-10 text-xs text-inksoft md:mt-36"
+>
+    <p class="font-medium">
+        &copy; {today.getFullYear()} Magnus Kaut.
+    </p>
+    <ul class="flex gap-2">
+        <li>
+            <a
+                href="/"
+                class="flex items-center gap-1 hover:text-ink hover:no-underline"
+                >Projects <Icon
+                    name="radix-icons:arrow-top-right"
+                    class="h-3 w-3"
+                /></a
+            >
+        </li>
+
+        <li>
+            <a
+                href="/"
+                class="flex items-center gap-1 hover:text-ink hover:no-underline"
+                >About <Icon
+                    name="radix-icons:arrow-top-right"
+                    class="h-3 w-3"
+                /></a
+            >
+        </li>
+    </ul>
+</footer>

@@ -1,0 +1,116 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+import RecentPublications from "../components/RecentPublications.astro";
+import HeroProject from "../components/HeroProject.astro";
+import { Icon } from "astro-iconify";
+---
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+    </head>
+    <body
+        class="mx-auto w-full max-w-screen-lg bg-paper text-ink transition-colors duration-300"
+    >
+        <Header />
+        <main class="my-4 flex flex-col items-center justify-center">
+            <div
+                class="flex flex-col items-center justify-center gap-4 px-4 md:my-10"
+            >
+                <!-- Profile pic -->
+                <div
+                    class="mb-10 mt-6 flex w-full flex-col items-center gap-2.5"
+                >
+                    <img
+                        src="/assets/profilepic1.jpeg"
+                        alt="Astronaut"
+                        class="size-60 rounded-full md:size-80"
+                    />
+                </div>
+                <!-- shot bio -->
+                <h1 class="text-3xl font-bold md:text-6xl">
+                    👋🏼 Hi, I'm Magnus,
+                </h1>
+                <p class="max-w-xl text-center text-base md:text-lg">
+                    a master's graduate in Computer Science from the University
+                    of Tübingen. I enjoy working on projects that involve
+                    machine learning, computer vision, web development and
+                    building automations.
+                </p>
+
+                <!-- Social links   -->
+                <div class="mt-3 flex gap-3">
+                    <a
+                        href="https://www.linkedin.com/in/magnus-kaut/"
+                        target="_blank"
+                    >
+                        <Icon
+                            name="radix-icons:linkedin-logo"
+                            class="h-5 w-5 text-ink2 hover:text-ink"
+                        />
+                    </a>
+                    <a
+                        href="https://www.github.com/magicmagnus"
+                        target="_blank"
+                    >
+                        <Icon
+                            name="radix-icons:github-logo"
+                            class="h-5 w-5 text-ink2 hover:text-ink"
+                        />
+                    </a>
+                </div>
+            </div>
+
+            <h2
+                class="mb-10 mt-20 font-serif text-3xl font-bold italic md:text-5xl"
+            >
+                What I've been up to
+            </h2>
+            <!-- hero projects -->
+            <div class="flex h-fit w-full flex-col gap-16 px-4">
+                <!-- kinoschurke -->
+
+                <HeroProject
+                    title="Kinoschurke"
+                    description="A progressive web app that plots local cinema showtimes in timelines for easier browsing and planning. Built with React, Tailwind CSS and Puppeteer."
+                    url="https://kinoschurke.de/"
+                    alingLeft={false}
+                    scale={0.75}
+                    iframeWidth={855}
+                    iframeHeight={700}
+                    previewWidth={645}
+                />
+
+                <HeroProject
+                    title="Dashboard"
+                    description="A dashboard for monitoring temperature and humidity data from a Raspberry Pi. Built with React, Tailwind CSS and Chart.js."
+                    url="https://pi-dashboard.netlify.app/"
+                    alingLeft={true}
+                    scale={0.5}
+                    iframeWidth={1190}
+                    iframeHeight={910}
+                    previewWidth={600}
+                />
+
+                <HeroProject
+                    title="Faketastisch"
+                    description="A web application that generates humorous parodies using few-shot prompting with large language models. Built with React, Tailwind CSS and HuggingFace."
+                    url="https://faketastisch.netlify.app/"
+                    alingLeft={false}
+                    scale={0.75}
+                    iframeWidth={480}
+                    iframeHeight={850}
+                    previewWidth={360}
+                />
+
+                <RecentPublications />
+
+                <Footer />
+            </div>
+        </main>
+    </body>
+</html>

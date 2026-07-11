@@ -1,0 +1,70 @@
+---
+import BaseHead from "../../components/BaseHead.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../../consts";
+import { getCollection, type CollectionEntry } from "astro:content";
+import FormattedDate from "../../components/FormattedDate.astro";
+import TagLink from "../../components/TagLink.astro";
+import BlogPostPreview from "../../components/BlogPostPreview.astro";
+
+type Post = CollectionEntry<"blog">;
+
+const posts = (await getCollection("blog")).sort(
+    (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+
+const postByYear: {
+    [year: number]: Post[];
+} = {};
+
+posts.forEach((post) => {
+    const year = post.data.pubDate.getFullYear();
+    if (!postByYear[year]) {
+        postByYear[year] = [];
+    }
+    postByYear[year].push(post);
+});
+---
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+    </head>
+    <body
+        class="mx-auto w-full max-w-screen-md bg-paper transition-colors duration-300"
+    >
+        <Header />
+        <main
+            class="mx-auto my-4 flex w-full max-w-screen-md flex-col justify-center gap-4 px-4"
+        >
+            {
+                Object.keys(postByYear)
+                    .sort((a, b) => parseInt(b) - parseInt(a))
+                    .map((year) => (
+                        <div class="flex flex-col">
+                            <h2 class="mb-10 mt-10 text-3xl font-bold text-ink">
+                                {year}
+                            </h2>
+                            <div class="flex flex-col gap-4">
+                                {postByYear[parseInt(year)].map(
+                                    (post: Post) => (
+                                        <BlogPostPreview
+                                            title={post.data.title}
+                                            description={post.data.description}
+                                            heroImage={post.data.heroImage}
+                                            slug={post.slug}
+                                            pubDate={post.data.pubDate}
+                                            tags={post.data.tags}
+                                        />
+                                    ),
+                                )}
+                            </div>
+                        </div>
+                    ))
+            }
+        </main>
+        <Footer />
+    </body>
+</html>

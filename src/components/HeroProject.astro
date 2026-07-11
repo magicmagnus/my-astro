@@ -1,0 +1,71 @@
+---
+import { Icon } from "astro-iconify";
+
+interface Props {
+    title: string;
+    description: string;
+    url: string;
+    alingLeft?: boolean;
+    scale: number;
+    iframeWidth: number;
+    iframeHeight: number;
+    previewWidth?: number;
+}
+
+const {
+    title,
+    description,
+    url,
+    alingLeft = false,
+    scale,
+    iframeWidth,
+    iframeHeight,
+    previewWidth = 420,
+} = Astro.props;
+
+const iframeOnLeft = alingLeft;
+const textAlignClass = iframeOnLeft ? "text-left" : "text-right";
+const contentAlignmentClass = iframeOnLeft ? "items-start" : "items-end";
+const iframeOrderClass = iframeOnLeft ? "md:order-0" : "md:order-1";
+const textOrderClass = iframeOnLeft ? "md:order-1" : "md:order-0";
+
+const previewStyle = `width: min(100%, ${previewWidth}px); aspect-ratio: ${iframeWidth} / ${iframeHeight};`;
+const iframeStyle = `width: ${iframeWidth}px; height: ${iframeHeight}px; transform: scale(${scale}); transform-origin: top left; display: block;`;
+---
+
+<article
+    class="mt-5 flex flex-col items-center justify-center gap-4 md:flex-row md:gap-10"
+>
+    <div
+        class={iframeOrderClass +
+            " shrink-0 overflow-hidden rounded-lg border-2 border-hairline order-0"}
+        style={previewStyle}
+    >
+        <iframe
+            src={url}
+            title={title}
+            width={iframeWidth}
+            height={iframeHeight}
+            style={iframeStyle}
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen></iframe>
+    </div>
+
+    <div
+        class={textOrderClass +
+            " flex min-w-0 max-w-md flex-col gap-4 " +
+            contentAlignmentClass +
+            " " +
+            textAlignClass}
+    >
+        <a
+            href={url}
+            target="_blank"
+            class="flex items-center justify-center gap-2 text-3xl font-bold md:text-4xl"
+        >
+            <Icon name="radix-icons:arrow-top-right" class="size-8" />{title}
+        </a>
+
+        <p class="text-base text-ink2">{description}</p>
+    </div>
+</article>

@@ -1,0 +1,28 @@
+---
+import { Icon } from "astro-iconify";
+const props = Astro.props;
+---
+
+<button class={"switch-theme-button pushable " + props.class}>
+    <span class="front rounded-full">
+        <Icon name="charm:sun" class="flex h-4 w-4 dark:hidden" />
+        <Icon name="charm:moon" class="hidden h-4 w-4 dark:flex" />
+    </span>
+</button>
+
+<script>
+    // document.addEventListener('astro:page-load', () => {
+    const buttons = document.querySelectorAll(".switch-theme-button");
+    buttons.forEach((button) => {
+        button.addEventListener("click", () => {
+            if (localStorage.theme === "dark") {
+                localStorage.theme = "light";
+                document.documentElement.classList.remove("dark");
+            } else {
+                localStorage.theme = "dark";
+                document.documentElement.classList.add("dark");
+            }
+        });
+    });
+    // });
+</script>

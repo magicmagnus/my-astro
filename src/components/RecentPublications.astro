@@ -1,0 +1,37 @@
+---
+import { getCollection } from "astro:content";
+import BlogPostPreview from "./BlogPostPreview.astro";
+
+const posts = await getCollection("blog");
+let numberOfPostsToDisplay = 10;
+let recentPosts = posts.slice(0, numberOfPostsToDisplay);
+recentPosts.sort((a, b) => {
+    return (
+        new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime()
+    );
+});
+---
+
+<div class="mx-auto mt-16 flex max-w-screen-md flex-col gap-4 px-4">
+    <h2 class="mx-auto mb-10 mt-10 font-serif text-3xl font-bold italic">
+        Other Recent Projects
+    </h2>
+    {
+        recentPosts.map((post) => (
+            <BlogPostPreview
+                title={post.data.title}
+                description={post.data.description}
+                heroImage={post.data.heroImage}
+                slug={post.slug}
+                pubDate={post.data.pubDate}
+                tags={post.data.tags}
+            />
+        ))
+    }
+    <a
+        class="pushable mx-auto mt-12 flex h-8 w-64 max-w-xs items-center justify-center rounded-lg border bg-paper text-center text-xs font-medium transition-colors ease-in-out hover:no-underline"
+        href="/blog"
+    >
+        <span class="front w-full rounded-full">View all</span>
+    </a>
+</div>

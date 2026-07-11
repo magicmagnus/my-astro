@@ -1,0 +1,55 @@
+---
+import FormattedDate from "./FormattedDate.astro";
+import TagLink from "./TagLink.astro";
+
+interface Props {
+    title: string;
+    description: string;
+    heroImage: any;
+    slug: string;
+    pubDate: Date;
+    tags?: string[];
+}
+
+const { title, description, heroImage, slug, pubDate, tags } = Astro.props;
+---
+
+<div
+    class="flex flex-col-reverse gap-2 border-b-2 border-paper3 pb-4 sm:flex-row sm:justify-between"
+>
+    <div class="flex flex-col justify-start gap-4">
+        <FormattedDate date={pubDate} />
+        <a
+            class="text-xl font-bold text-ink no-underline transition-transform duration-100 hover:scale-[103%]"
+            href={`/blog/${slug}`}
+        >
+            {title}
+        </a>
+
+        <ul class="mb-2 mt-auto flex flex-wrap gap-2 gap-y-0">
+            {
+                tags?.map((tag) => (
+                    <li>
+                        <TagLink tag={tag} />
+                    </li>
+                ))
+            }
+        </ul>
+    </div>
+    <a href={`/blog/${slug}`} class="group">
+        <div
+            class="relative h-56 w-full overflow-hidden rounded-lg bg-neutral-900 sm:w-80"
+        >
+            <img
+                src={heroImage}
+                alt=""
+                class="absolute inset-0 h-full w-full scale-110 object-cover blur-md brightness-50"
+            />
+            <img
+                src={heroImage}
+                alt=""
+                class="absolute inset-0 h-full w-full object-contain transition-transform duration-100 group-hover:scale-105"
+            />
+        </div>
+    </a>
+</div>
