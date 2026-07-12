@@ -33,12 +33,10 @@ posts.forEach((post) => {
         <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
     </head>
     <body
-        class="mx-auto w-full max-w-screen-md bg-paper transition-colors duration-300"
+        class="mx-auto w-full max-w-screen-lg bg-paper text-ink transition-colors duration-300"
     >
         <Header />
-        <main
-            class="mx-auto my-4 flex w-full max-w-screen-md flex-col justify-center gap-4 px-4"
-        >
+        <main class="mx-6 my-4 flex flex-col items-center justify-center">
             {
                 Object.keys(postByYear)
                     .sort((a, b) => parseInt(b) - parseInt(a))
@@ -47,7 +45,7 @@ posts.forEach((post) => {
                             <h2 class="mb-10 mt-10 text-3xl font-bold text-ink">
                                 {year}
                             </h2>
-                            <div class="flex flex-col gap-4">
+                            <div class="flex flex-col gap-6 lg:gap-8">
                                 {postByYear[parseInt(year)].map(
                                     (post: Post) => (
                                         <BlogPostPreview

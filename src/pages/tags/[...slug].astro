@@ -34,14 +34,16 @@ type Post = CollectionEntry<"blog">;
         />
     </head>
     <body
-        class="mx-auto flex min-h-dvh w-full max-w-screen-md flex-col justify-between transition-colors duration-300 dark:bg-neutral-800 dark:text-neutral-300"
+        class="mx-auto w-full max-w-screen-lg bg-paper text-ink transition-colors duration-300"
     >
         <Header />
-        <main class="flex flex-col justify-center px-4">
+        <main
+            class="mx-6 my-4 flex flex-col items-center justify-center gap-6 lg:gap-8"
+        >
             <h2
-                class="mb-8 w-full text-2xl font-bold text-black dark:text-white"
+                class="my-5 w-full text-2xl font-bold text-black dark:text-white"
             >
-                🗃️ Posts tagged with <span> {tag}</span>
+                Projects tagged with <span> {tag}</span>
             </h2>
 
             {

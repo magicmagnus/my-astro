@@ -12,7 +12,7 @@ recentPosts.sort((a, b) => {
 });
 ---
 
-<div class="mx-auto mt-16 flex max-w-screen-md flex-col gap-4 px-4">
+<div class="mx-auto mt-16 flex max-w-full flex-col gap-6 lg:gap-8">
     <h2 class="mx-auto mb-10 mt-10 font-serif text-3xl font-bold italic">
         Other Recent Projects
     </h2>
@@ -29,9 +29,9 @@ recentPosts.sort((a, b) => {
         ))
     }
     <a
-        class="pushable mx-auto mt-12 flex h-8 w-64 max-w-xs items-center justify-center rounded-lg border bg-paper text-center text-xs font-medium transition-colors ease-in-out hover:no-underline"
+        class="pushable mx-auto mt-2 flex max-w-xs items-center justify-center rounded-lg border bg-paper text-center text-xs font-medium no-underline transition-colors ease-in-out hover:no-underline"
         href="/blog"
     >
-        <span class="front w-full rounded-full">View all</span>
+        <span class="front w-full rounded-full px-10 py-4">View all</span>
     </a>
 </div>

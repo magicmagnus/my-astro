@@ -103,12 +103,12 @@
      display: block;
      position: relative;
      background: var(--paper);
-     padding: 8px 8px;
+
      color: var(--ink);
      box-shadow: var(--raised);
 
      font-weight: 600;
-     text-transform: uppercase;
+
      letter-spacing: 1.5px;
      font-size: 1rem;
      transform: translateY(-2px);

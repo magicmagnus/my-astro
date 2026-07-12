@@ -17,9 +17,9 @@ import { Icon } from "astro-iconify";
         class="mx-auto w-full max-w-screen-lg bg-paper text-ink transition-colors duration-300"
     >
         <Header />
-        <main class="my-4 flex flex-col items-center justify-center">
+        <main class="mx-6 my-4 flex flex-col items-center justify-center">
             <div
-                class="flex flex-col items-center justify-center gap-4 px-4 md:my-10"
+                class="flex flex-col items-center justify-center gap-4 md:my-10"
             >
                 <!-- Profile pic -->
                 <div
@@ -66,14 +66,12 @@ import { Icon } from "astro-iconify";
             </div>
 
             <h2
-                class="mb-10 mt-20 font-serif text-3xl font-bold italic md:text-5xl"
+                class="mb-10 mt-20 font-serif text-3xl font-bold italic md:text-5xl lg:mb-16"
             >
                 What I've been up to
             </h2>
-            <!-- hero projects -->
-            <div class="flex h-fit w-full flex-col gap-16 px-4">
-                <!-- kinoschurke -->
-
+            <!-- hero projects Widescreen-->
+            <div class="hidden h-fit w-full flex-col gap-20 lg:flex">
                 <HeroProject
                     title="Kinoschurke"
                     description="A progressive web app that plots local cinema showtimes in timelines for easier browsing and planning. Built with React, Tailwind CSS and Puppeteer."
@@ -84,7 +82,6 @@ import { Icon } from "astro-iconify";
                     iframeHeight={700}
                     previewWidth={645}
                 />
-
                 <HeroProject
                     title="Dashboard"
                     description="A dashboard for monitoring temperature and humidity data from a Raspberry Pi. Built with React, Tailwind CSS and Chart.js."
@@ -95,7 +92,6 @@ import { Icon } from "astro-iconify";
                     iframeHeight={910}
                     previewWidth={600}
                 />
-
                 <HeroProject
                     title="Faketastisch"
                     description="A web application that generates humorous parodies using few-shot prompting with large language models. Built with React, Tailwind CSS and HuggingFace."
@@ -106,11 +102,43 @@ import { Icon } from "astro-iconify";
                     iframeHeight={850}
                     previewWidth={360}
                 />
-
-                <RecentPublications />
-
-                <Footer />
             </div>
+            <!-- hero projects Mobile-->
+            <div class="flex h-fit w-full flex-col gap-16 lg:hidden">
+                <HeroProject
+                    title="Kinoschurke"
+                    description="A progressive web app that plots local cinema showtimes in timelines for easier browsing and planning. Built with React, Tailwind CSS and Puppeteer."
+                    url="https://kinoschurke.de/"
+                    alingLeft={false}
+                    scale={0.75}
+                    iframeWidth={480}
+                    iframeHeight={850}
+                    previewWidth={360}
+                />
+                <HeroProject
+                    title="Dashboard"
+                    description="A dashboard for monitoring temperature and humidity data from a Raspberry Pi. Built with React, Tailwind CSS and Chart.js."
+                    url="https://pi-dashboard.netlify.app/"
+                    alingLeft={true}
+                    scale={0.75}
+                    iframeWidth={480}
+                    iframeHeight={850}
+                    previewWidth={360}
+                />
+                <HeroProject
+                    title="Faketastisch"
+                    description="A web application that generates humorous parodies using few-shot prompting with large language models. Built with React, Tailwind CSS and HuggingFace."
+                    url="https://faketastisch.netlify.app/"
+                    alingLeft={false}
+                    scale={0.75}
+                    iframeWidth={480}
+                    iframeHeight={850}
+                    previewWidth={360}
+                />
+            </div>
+
+            <RecentPublications />
         </main>
+        <Footer />
     </body>
 </html>

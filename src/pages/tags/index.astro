@@ -19,12 +19,10 @@ const tags = posts
         <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
     </head>
     <body
-        class="mx-auto flex min-h-dvh w-full max-w-screen-md flex-col justify-between transition-colors duration-300 dark:bg-neutral-800 dark:text-neutral-300"
+        class="mx-auto w-full max-w-screen-lg bg-paper text-ink transition-colors duration-300"
     >
         <Header />
-        <main
-            class="mx-auto my-4 flex w-full max-w-screen-md flex-col justify-center gap-4 px-4"
-        >
+        <main class="mx-6 my-4 flex flex-col items-center justify-center">
             <ul class="flex flex-wrap gap-2">
                 {
                     tags.map((tag) => (
