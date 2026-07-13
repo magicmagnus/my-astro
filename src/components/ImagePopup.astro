@@ -1,0 +1,76 @@
+---
+interface Props {
+    src: string | any;
+    alt: string;
+    caption?: string;
+    width?: number;
+    height?: number;
+}
+
+const { src, alt, caption, width = 800, height = 600 } = Astro.props;
+---
+
+<div data-image-popup class="relative flex w-full flex-col items-center">
+    <button
+        type="button"
+        data-image-trigger
+        class="block cursor-zoom-in overflow-hidden rounded-sm transition-transform duration-100 hover:scale-105"
+        aria-label={`Open image: ${alt}`}
+    >
+        <img src={src} alt={alt} width={width} height={height} class="m-0" />
+    </button>
+
+    {caption && <p class="mt-2 text-center text-sm text-ink2">{caption}</p>}
+
+    <div
+        data-image-modal
+        class="fixed inset-0 z-50 hidden items-center justify-center bg-black/75 p-4"
+        aria-hidden="true"
+    >
+        <button
+            type="button"
+            data-image-close
+            class="absolute inset-0 cursor-zoom-out"
+            aria-label={`Close image: ${alt}`}></button>
+
+        <img
+            data-image-modal-image
+            src={src}
+            alt={alt}
+            class="relative z-10 mx-auto max-h-[min(90%,1100px)] max-w-[min(90%,1300px)] rounded-lg bg-paper"
+        />
+    </div>
+</div>
+
+<script>
+    const popups = document.querySelectorAll("[data-image-popup]");
+
+    popups.forEach((popup) => {
+        const trigger = popup.querySelector("[data-image-trigger]");
+        const modal = popup.querySelector("[data-image-modal]");
+        const close = popup.querySelector("[data-image-close]");
+
+        const openModal = () => {
+            if (!modal) return;
+            modal.classList.remove("hidden");
+            modal.classList.add("flex");
+            modal.setAttribute("aria-hidden", "false");
+        };
+
+        const closeModal = () => {
+            if (!modal) return;
+            modal.classList.add("hidden");
+            modal.classList.remove("flex");
+            modal.setAttribute("aria-hidden", "true");
+        };
+
+        trigger?.addEventListener("click", openModal);
+        close?.addEventListener("click", closeModal);
+
+        modal?.addEventListener("click", closeModal);
+
+        document.addEventListener("keydown", (event) => {
+            if (event.key === "Escape") closeModal();
+        });
+    });
+</script>

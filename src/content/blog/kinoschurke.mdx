@@ -1,20 +1,50 @@
 ---
 title: "Kinoschurke - React Movie Website with automated Web Scraping"
-description: ''
+description: 'true'
 pubDate: 'Jan 01 2025'
 heroImage: '/assets/posts/kinoschurke.png'
 tags: [Web Scraping, Web Development, React, JavaScript, Puppeteer]
 ---
 
+import HeroProject from "../../components/HeroProject.astro"
+
+
+<div class="hidden lg:block">     
+    <HeroProject
+        title="Kinoschurke"
+        description="A progressive web app that plots local cinema showtimes in timelines for easier browsing and planning. Built with React, Tailwind CSS and Puppeteer."
+        url="https://kinoschurke.de/"
+        alingLeft={false}
+        scale={0.75}
+        iframeWidth={855}
+        iframeHeight={700}
+        previewWidth={645}
+        onlyIframe={true}
+    />
+</div>
+<div class="lg:hidden">
+    
+    <HeroProject
+        title="Kinoschurke"
+        description="A progressive web app that plots local cinema showtimes in timelines for easier browsing and planning. Built with React, Tailwind CSS and Puppeteer."
+        url="https://kinoschurke.de/"
+        alingLeft={false}
+        scale={0.75}
+        iframeWidth={475}
+        iframeHeight={820}
+        previewWidth={360}
+        onlyIframe={true}
+    />
+</div>
+
+
 # Try it out at: [Kinoschurke.de](https://kinoschurke.de)
+
+<br/>
 
 Has this ever happened to you? You love going to the movies, so much so that you buy an "Unlimited Subscription" to see even more movies at your local cinema. But now, there are so many movies to choose from that it's hard to decide which ones to see, when they're playing, and at which cinema. You visit the official page of your local cinemas, which is designed beautifully but somehow still doesn't organize movie show times in a way that feels natural to you.
 So, like anyone would, you think to yourself, "It can't be that hard to write a script that copies all the show times from the official site and build a custom website that displays these show times in a way that feels natural to me, preferably in a nice timeline overview per day, can it?"
 So yeah, that’s what happened to me and why I built this website. I hope you have fun using it!
 
-<br/>
-<iframe src="https://kinoschurke.de" class="h-[600px] w-full rounded-lg border-2 border-neutral-500" title="Kinoschurke.de"></iframe>
-
-<br/>
 <br/>
 

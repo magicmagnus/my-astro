@@ -5,32 +5,14 @@ const today = new Date();
 ---
 
 <footer
-    class="my-10 flex items-center justify-between border-t border-inksoft px-4 pt-10 text-xs text-inksoft md:mt-20 md:text-sm lg:text-base"
+    class="my-10 flex items-center justify-center border-t border-inksoft px-4 pt-10 text-xs text-inksoft md:mt-20 md:text-sm lg:text-base"
 >
     <p class="font-medium">
-        &copy; {today.getFullYear()} Magnus Kaut.
+        &copy; {today.getFullYear()} Magnus Kaut. All rights reserved. Made with ❤️
+        by <a
+            href="https://github.com/magicmagnus"
+            target="_blank"
+            class="text-ink3 no-underline">magicmagnus</a
+        >.
     </p>
-    <ul class="flex gap-2">
-        <li>
-            <a
-                href="/"
-                class="flex items-center gap-1 hover:text-ink hover:no-underline"
-                >Projects <Icon
-                    name="radix-icons:arrow-top-right"
-                    class="h-3 w-3"
-                /></a
-            >
-        </li>
-
-        <li>
-            <a
-                href="/"
-                class="flex items-center gap-1 hover:text-ink hover:no-underline"
-                >About <Icon
-                    name="radix-icons:arrow-top-right"
-                    class="h-3 w-3"
-                /></a
-            >
-        </li>
-    </ul>
 </footer>

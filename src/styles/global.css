@@ -76,11 +76,6 @@
      text-decoration: underline;
  }
 
- img {
-     @apply rounded-lg;
-     max-width: 100%;
-     height: auto;
- }
 
  .pushable {
      position: relative;

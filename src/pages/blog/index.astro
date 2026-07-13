@@ -36,12 +36,14 @@ posts.forEach((post) => {
         class="mx-auto w-full max-w-screen-lg bg-paper text-ink transition-colors duration-300"
     >
         <Header />
-        <main class="mx-6 my-4 flex flex-col items-center justify-center">
+        <main
+            class="mx-6 my-4 flex w-full flex-col items-center justify-center"
+        >
             {
                 Object.keys(postByYear)
                     .sort((a, b) => parseInt(b) - parseInt(a))
                     .map((year) => (
-                        <div class="flex flex-col">
+                        <div class="flex w-full flex-col">
                             <h2 class="mb-10 mt-10 text-3xl font-bold text-ink">
                                 {year}
                             </h2>

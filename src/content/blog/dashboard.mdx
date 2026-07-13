@@ -1,0 +1,52 @@
+---
+title: "SmartHome Sensor dashboard for Temperature/Humidity monitoring" 
+description: 'true'
+pubDate: 'Aug 01 2024'
+heroImage: '/assets/posts/dashboard.png'
+tags: [Web Development, JavaScript, React, ThingsSpeak]
+
+---
+
+import HeroProject from "../../components/HeroProject.astro"
+
+
+<div class="hidden lg:block">
+    
+    <HeroProject
+        title="Dashboard"
+        description="A dashboard for monitoring temperature and humidity data from a Raspberry Pi. Built with React, Tailwind CSS and Chart.js."
+        url="https://pi-dashboard.netlify.app/"
+        alingLeft={true}
+        scale={0.5}
+        iframeWidth={1190}
+        iframeHeight={910}
+        previewWidth={600}
+        onlyIframe={true}
+    />
+</div>
+<div class="lg:hidden">
+    
+    <HeroProject
+        title="Dashboard"
+        description="A dashboard for monitoring temperature and humidity data from a Raspberry Pi. Built with React, Tailwind CSS and Chart.js."
+        url="https://pi-dashboard.netlify.app/"
+        alingLeft={true}
+        scale={0.75}
+        iframeWidth={475}
+        iframeHeight={820}
+        previewWidth={360}
+        onlyIframe={true}
+    />
+</div>
+
+<br />
+
+You know the problem:
+Winter is coming, and you need to know the temperature/humidity in your home for heating purposes.
+You could buy a cheap gadget that tells you both values (boring). Or you could buy a Raspberry Pi and
+an external sensor, program it to continually upload its measurements into a smart home service and
+integrate that into a self-designed web app that plots current and past values and finally have a good
+overview of how your home is heated. Which is what I did, and what led to this small dashboard:
+
+<br />
+See it in action <a href="https://pi-dashboard.netlify.app" target="_blank" rel="noopener noreferrer">here</a>
