@@ -88,7 +88,9 @@ const iframeStyle = `width: ${iframeWidth}px; height: ${iframeHeight}px; transfo
 
         const getTrackedIframes = () =>
             Array.from(
-                document.querySelectorAll("iframe[data-hero-iframe]"),
+                document.querySelectorAll<HTMLIFrameElement>(
+                    "iframe[data-hero-iframe]",
+                ),
             ).map((iframe) => {
                 let origin = "";
                 try {
