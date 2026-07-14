@@ -33,17 +33,17 @@ posts.forEach((post) => {
         <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
     </head>
     <body
-        class="mx-auto w-full max-w-screen-lg bg-paper text-ink transition-colors duration-300"
+        class="flex min-h-[100dvh] w-full flex-col bg-paper text-ink transition-colors duration-300"
     >
         <Header />
         <main
-            class="flex w-full flex-col items-center justify-center px-6 py-4 md:px-10"
+            class="mx-auto flex w-full max-w-screen-lg flex-col items-center justify-center p-6 md:p-10"
         >
             {
                 Object.keys(postByYear)
                     .sort((a, b) => parseInt(b) - parseInt(a))
                     .map((year) => (
-                        <div class="flex flex-col">
+                        <div class="mx-auto flex flex-col lg:w-full">
                             <h2 class="mb-10 mt-10 text-3xl font-bold text-ink">
                                 {year}
                             </h2>

@@ -4,7 +4,7 @@ description: 'true'
 pubDate: 'Aug 01 2024'
 heroImage: '/assets/posts/dashboard.png'
 tags: [Web Development, JavaScript, React, ThingsSpeak]
-
+hideHero: true
 ---
 
 import HeroProject from "../../components/HeroProject.astro"
@@ -12,25 +12,23 @@ import HeroProject from "../../components/HeroProject.astro"
 
 <div class="mx-auto max-w-sm lg:max-w-5xl">
     <div class="hidden lg:block">
-    
         <HeroProject
             title="Dashboard"
             description="A dashboard for monitoring temperature and humidity data from a Raspberry Pi. Built with React, Tailwind CSS and Chart.js."
-            url="https://pi-dashboard.netlify.app/"
+            url="https://dashboard.magnuskaut.de/"
             alingLeft={true}
-            scale={0.5}
-            iframeWidth={1190}
-            iframeHeight={910}
-            previewWidth={600}
+            scale={0.75}
+            iframeWidth={1254}
+            iframeHeight={930}
+            previewWidth={944}
             onlyIframe={true}
         />
     </div>
     <div class="lg:hidden">
-    
         <HeroProject
             title="Dashboard"
             description="A dashboard for monitoring temperature and humidity data from a Raspberry Pi. Built with React, Tailwind CSS and Chart.js."
-            url="https://pi-dashboard.netlify.app/"
+            url="https://dashboard.magnuskaut.de/"
             alingLeft={true}
             scale={0.75}
             iframeWidth={475}
@@ -41,7 +39,9 @@ import HeroProject from "../../components/HeroProject.astro"
     </div>
 </div>
 
-<br />
+
+
+<h3>GitHub Repo: <a href="https://github.com/magicmagnus/dashboard" target="_blank" rel="noopener noreferrer">GitHub Repo</a></h3>
 
 You know the problem:
 Winter is coming, and you need to know the temperature/humidity in your home for heating purposes.
@@ -50,5 +50,5 @@ an external sensor, program it to continually upload its measurements into a sma
 integrate that into a self-designed web app that plots current and past values and finally have a good
 overview of how your home is heated. Which is what I did, and what led to this small dashboard:
 
-<br />
-See it in action <a href="https://pi-dashboard.netlify.app" target="_blank" rel="noopener noreferrer">here</a>
+
+<h3>See it in action <a href="https://dashboard.magnuskaut.de" target="_blank" rel="noopener noreferrer">here.</a></h3>

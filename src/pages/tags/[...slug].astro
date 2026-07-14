@@ -37,16 +37,15 @@ type Post = CollectionEntry<"blog">;
         />
     </head>
     <body
-        class="mx-auto w-full max-w-screen-lg bg-paper text-ink transition-colors duration-300"
+        class="flex min-h-[100dvh] w-full flex-col bg-paper text-ink transition-colors duration-300"
     >
         <Header />
         <main
-            class="flex flex-col items-center justify-center gap-6 px-6 py-4 md:px-10 lg:gap-8"
+            class="mx-auto flex w-full max-w-screen-lg flex-col items-center justify-center gap-6 p-6 md:p-10 lg:gap-8"
         >
-            <h2 class="my-5 w-full text-2xl font-bold lg:text-4xl">
-                Projects tagged with <span class="font-bold">#{tag}</span>
+            <h2 class="mb-4 mr-auto mt-10 text-3xl font-bold text-ink lg:mb-2">
+                Projects tagged with #{tag as string}
             </h2>
-
             {
                 posts.map((post: Post) => (
                     <BlogPostPreview

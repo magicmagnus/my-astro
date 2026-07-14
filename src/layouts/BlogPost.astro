@@ -9,12 +9,7 @@ import ImagePopup from "../components/ImagePopup.astro";
 
 type Props = CollectionEntry<"blog">["data"];
 
-interface BlogPostProps extends Props {
-    hasIframe?: boolean;
-}
-
-const { title, description, pubDate, heroImage, tags } = Astro.props;
-const hasIframe = description === "true";
+const { title, description, pubDate, heroImage, tags, hideHero } = Astro.props;
 ---
 
 <!doctype html>
@@ -23,13 +18,13 @@ const hasIframe = description === "true";
         <BaseHead title={title} description={description} />
     </head>
     <body
-        class="mx-auto w-full max-w-screen-lg bg-paper text-ink transition-colors duration-300"
+        class="flex min-h-[100dvh] w-full flex-col bg-paper text-ink transition-colors duration-300"
     >
         <Header />
         <main
-            class="flex flex-col items-center justify-center px-6 py-4 md:px-10"
+            class="mx-auto flex w-full max-w-screen-lg flex-col items-center justify-center p-6 md:p-10"
         >
-            <article class="">
+            <article class="w-full">
                 <div class="mb-6 flex justify-between">
                     <FormattedDate date={pubDate} />
                 </div>
@@ -38,7 +33,7 @@ const hasIframe = description === "true";
                 </h1>
                 <div>
                     {
-                        !hasIframe && (
+                        !hideHero && (
                             <ImagePopup
                                 src={heroImage}
                                 alt=""

@@ -4,10 +4,10 @@ description: 'true'
 pubDate: 'Jan 01 2025'
 heroImage: '/assets/posts/kinoschurke.png'
 tags: [Web Scraping, Web Development, React, JavaScript, Puppeteer]
+hideHero: true
 ---
 
 import HeroProject from "../../components/HeroProject.astro"
-
 
 <div class="mx-auto max-w-sm lg:max-w-5xl">
     <div class="hidden lg:block">
@@ -17,14 +17,13 @@ import HeroProject from "../../components/HeroProject.astro"
             url="https://kinoschurke.de/"
             alingLeft={false}
             scale={0.75}
-            iframeWidth={855}
-            iframeHeight={700}
-            previewWidth={645}
+            iframeWidth={1254}
+            iframeHeight={800}
+            previewWidth={944}
             onlyIframe={true}
         />
     </div>
     <div class="lg:hidden">
-    
         <HeroProject
             title="Kinoschurke"
             description="A progressive web app that plots local cinema showtimes in timelines for easier browsing and planning. Built with React, Tailwind CSS and Puppeteer."
@@ -40,12 +39,18 @@ import HeroProject from "../../components/HeroProject.astro"
 </div>
 
 
-# Try it out at: [Kinoschurke.de](https://kinoschurke.de)
+<h3>Try it out at: <a href="https://kinoschurke.de" target="_blank" rel="noopener noreferrer">Kinoschurke.de</a></h3>
 
-<br/>
+<h3>GitHub Repo: <a href="https://github.com/magicmagnus/kino" target="_blank" rel="noopener noreferrer">GitHub Repo</a></h3>
+
+
 
 Has this ever happened to you? You love going to the movies, so much so that you buy an "Unlimited Subscription" to see even more movies at your local cinema. But now, there are so many movies to choose from that it's hard to decide which ones to see, when they're playing, and at which cinema. You visit the official page of your local cinemas, which is designed beautifully but somehow still doesn't organize movie show times in a way that feels natural to you.
+<br />
+
 So, like anyone would, you think to yourself, "It can't be that hard to write a script that copies all the show times from the official site and build a custom website that displays these show times in a way that feels natural to me, preferably in a nice timeline overview per day, can it?"
+<br />
+
 So yeah, that’s what happened to me and why I built this website. I hope you have fun using it!
 
 <br/>

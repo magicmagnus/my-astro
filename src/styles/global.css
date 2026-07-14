@@ -62,6 +62,14 @@
      box-shadow: var(--edge-lg);
  }
 
+ .shadow-recess {
+     box-shadow: var(--recess);
+ }
+
+ .shadow-raised {
+     box-shadow: var(--raised);
+ }
+
  html {
      font-family: 'Reddit Mono', monospace;
      width: 100%;

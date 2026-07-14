@@ -14,10 +14,12 @@ import { Icon } from "astro-iconify";
         <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
     </head>
     <body
-        class="mx-auto w-full max-w-screen-lg bg-paper text-ink transition-colors duration-300"
+        class="flex min-h-[100dvh] w-full flex-col bg-paper text-ink transition-colors duration-300"
     >
         <Header />
-        <main class="flex flex-col items-center justify-center px-6 py-4">
+        <main
+            class="mx-auto w-full max-w-screen-lg flex-col items-center justify-center p-6 md:p-10"
+        >
             <div
                 class="flex flex-col items-center justify-center gap-4 md:my-10"
             >
@@ -31,9 +33,9 @@ import { Icon } from "astro-iconify";
                         class="size-60 rounded-full md:size-80"
                     />
                 </div>
-                <!-- shot bio -->
+                <!-- short bio -->
                 <h1 class="text-3xl font-bold md:text-6xl">
-                    👋🏼 Hi, I'm Magnus,
+                    👋🏼Hi, I'm Magnus,
                 </h1>
                 <p class="max-w-xl text-center text-base md:text-lg">
                     a master's graduate in Computer Science from the University
@@ -66,7 +68,7 @@ import { Icon } from "astro-iconify";
             </div>
 
             <h2
-                class="mb-10 mt-20 font-serif text-3xl font-bold italic md:text-5xl lg:mb-16"
+                class="mx-auto mb-10 mt-20 w-full text-center font-serif text-3xl font-bold italic md:text-5xl lg:mb-16"
             >
                 What I've been up to
             </h2>
@@ -106,7 +108,7 @@ import { Icon } from "astro-iconify";
                     <HeroProject
                         title="Dashboard"
                         description="A dashboard for monitoring temperature and humidity data from a Raspberry Pi. Built with React, Tailwind CSS and Chart.js."
-                        url="https://pi-dashboard.netlify.app/"
+                        url="https://dashboard.magnuskaut.de/"
                         alingLeft={true}
                         scale={0.5}
                         iframeWidth={1190}
@@ -119,7 +121,7 @@ import { Icon } from "astro-iconify";
                     <HeroProject
                         title="Dashboard"
                         description="A dashboard for monitoring temperature and humidity data from a Raspberry Pi. Built with React, Tailwind CSS and Chart.js."
-                        url="https://pi-dashboard.netlify.app/"
+                        url="https://dashboard.magnuskaut.de/"
                         alingLeft={true}
                         scale={0.75}
                         iframeWidth={475}
@@ -134,7 +136,7 @@ import { Icon } from "astro-iconify";
                     <HeroProject
                         title="Faketastisch"
                         description="A web application that generates humorous parodies using few-shot prompting with large language models. Built with React, Tailwind CSS and HuggingFace."
-                        url="https://faketastisch.netlify.app/"
+                        url="https://faketastisch.magnuskaut.de/"
                         alingLeft={false}
                         scale={0.75}
                         iframeWidth={475}
@@ -147,7 +149,7 @@ import { Icon } from "astro-iconify";
                     <HeroProject
                         title="Faketastisch"
                         description="A web application that generates humorous parodies using few-shot prompting with large language models. Built with React, Tailwind CSS and HuggingFace."
-                        url="https://faketastisch.netlify.app/"
+                        url="https://faketastisch.magnuskaut.de/"
                         alingLeft={false}
                         scale={0.75}
                         iframeWidth={475}
@@ -171,7 +173,7 @@ import { Icon } from "astro-iconify";
                 <HeroProject
                     title="Dashboard"
                     description="A dashboard for monitoring temperature and humidity data from a Raspberry Pi. Built with React, Tailwind CSS and Chart.js."
-                    url="https://pi-dashboard.netlify.app/"
+                    url="https://dashboard.magnuskaut.de/"
                     alingLeft={true}
                     scale={0.75}
                     iframeWidth={475}
@@ -181,7 +183,7 @@ import { Icon } from "astro-iconify";
                 <HeroProject
                     title="Faketastisch"
                     description="A web application that generates humorous parodies using few-shot prompting with large language models. Built with React, Tailwind CSS and HuggingFace."
-                    url="https://faketastisch.netlify.app/"
+                    url="https://faketastisch.magnuskaut.de/"
                     alingLeft={false}
                     scale={0.75}
                     iframeWidth={475}

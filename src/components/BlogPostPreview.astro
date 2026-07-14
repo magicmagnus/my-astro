@@ -15,7 +15,7 @@ const { title, description, heroImage, slug, pubDate, tags } = Astro.props;
 ---
 
 <div
-    class="flex w-full max-w-md flex-col-reverse gap-4 border-b-2 border-hairline pb-5 lg:max-w-full lg:flex-row lg:justify-between lg:pb-8"
+    class="mx-auto flex w-full max-w-md flex-col-reverse gap-4 border-b-2 border-hairline pb-5 lg:max-w-full lg:flex-row lg:justify-between lg:pb-8"
 >
     <div class="flex flex-col justify-start gap-4">
         <FormattedDate date={pubDate} />
@@ -38,7 +38,7 @@ const { title, description, heroImage, slug, pubDate, tags } = Astro.props;
     </div>
     <a href={`/blog/${slug}`} class="group block">
         <div
-            class="relative aspect-[3/2] w-full overflow-hidden rounded-lg bg-paper2 lg:w-96"
+            class="relative aspect-[3/2] w-full overflow-hidden rounded-md bg-paper2 lg:w-96"
         >
             <img
                 src={heroImage}
