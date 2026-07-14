@@ -9,32 +9,34 @@ tags: [Web Scraping, Web Development, React, JavaScript, Puppeteer]
 import HeroProject from "../../components/HeroProject.astro"
 
 
-<div class="hidden lg:block">     
-    <HeroProject
-        title="Kinoschurke"
-        description="A progressive web app that plots local cinema showtimes in timelines for easier browsing and planning. Built with React, Tailwind CSS and Puppeteer."
-        url="https://kinoschurke.de/"
-        alingLeft={false}
-        scale={0.75}
-        iframeWidth={855}
-        iframeHeight={700}
-        previewWidth={645}
-        onlyIframe={true}
-    />
-</div>
-<div class="lg:hidden">
+<div class="mx-auto max-w-sm lg:max-w-5xl">
+    <div class="hidden lg:block">
+        <HeroProject
+            title="Kinoschurke"
+            description="A progressive web app that plots local cinema showtimes in timelines for easier browsing and planning. Built with React, Tailwind CSS and Puppeteer."
+            url="https://kinoschurke.de/"
+            alingLeft={false}
+            scale={0.75}
+            iframeWidth={855}
+            iframeHeight={700}
+            previewWidth={645}
+            onlyIframe={true}
+        />
+    </div>
+    <div class="lg:hidden">
     
-    <HeroProject
-        title="Kinoschurke"
-        description="A progressive web app that plots local cinema showtimes in timelines for easier browsing and planning. Built with React, Tailwind CSS and Puppeteer."
-        url="https://kinoschurke.de/"
-        alingLeft={false}
-        scale={0.75}
-        iframeWidth={475}
-        iframeHeight={820}
-        previewWidth={360}
-        onlyIframe={true}
-    />
+        <HeroProject
+            title="Kinoschurke"
+            description="A progressive web app that plots local cinema showtimes in timelines for easier browsing and planning. Built with React, Tailwind CSS and Puppeteer."
+            url="https://kinoschurke.de/"
+            alingLeft={false}
+            scale={0.75}
+            iframeWidth={475}
+            iframeHeight={820}
+            previewWidth={360}
+            onlyIframe={true}
+        />
+    </div>
 </div>
 
 

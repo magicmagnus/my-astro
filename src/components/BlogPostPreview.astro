@@ -36,9 +36,9 @@ const { title, description, heroImage, slug, pubDate, tags } = Astro.props;
             }
         </ul>
     </div>
-    <a href={`/blog/${slug}`} class="group">
+    <a href={`/blog/${slug}`} class="group block">
         <div
-            class="relative h-60 w-full overflow-hidden rounded-lg bg-paper2 transition-transform duration-100 hover:scale-105 lg:w-96"
+            class="relative aspect-[3/2] w-full overflow-hidden rounded-lg bg-paper2 lg:w-96"
         >
             <img
                 src={heroImage}

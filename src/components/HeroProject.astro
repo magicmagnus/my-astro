@@ -49,6 +49,7 @@ const iframeStyle = `width: ${iframeWidth}px; height: ${iframeHeight}px; transfo
             width={iframeWidth}
             height={iframeHeight}
             style={iframeStyle}
+            data-hero-iframe
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowfullscreen></iframe>
     </div>
@@ -78,3 +79,97 @@ const iframeStyle = `width: ${iframeWidth}px; height: ${iframeHeight}px; transfo
         )
     }
 </article>
+
+<script>
+    const IFRAME_HANDOFF_DEBUG = true;
+
+    if (!window.__heroIframeHandoffInit) {
+        window.__heroIframeHandoffInit = true;
+
+        const getTrackedIframes = () =>
+            Array.from(
+                document.querySelectorAll("iframe[data-hero-iframe]"),
+            ).map((iframe) => {
+                let origin = "";
+                try {
+                    origin = new URL(iframe.src, window.location.href).origin;
+                } catch {}
+                return { iframe, origin };
+            });
+
+        if (IFRAME_HANDOFF_DEBUG) {
+            console.log("[Parent] handoff init", {
+                pageOrigin: window.location.origin,
+                tracked: getTrackedIframes().map(({ origin, iframe }) => ({
+                    origin,
+                    src: iframe.src,
+                })),
+            });
+        }
+
+        window.addEventListener("message", (event) => {
+            const data = event.data;
+
+            if (IFRAME_HANDOFF_DEBUG) {
+                console.log("[Parent] message received", {
+                    origin: event.origin,
+                    data,
+                });
+            }
+
+            if (!data || data.type !== "iframe-scroll-handoff") {
+                if (IFRAME_HANDOFF_DEBUG) {
+                    console.log("[Parent] ignored: wrong message type");
+                }
+                return;
+            }
+
+            const match = getTrackedIframes().find(
+                ({ iframe, origin }) =>
+                    iframe.contentWindow === event.source &&
+                    origin === event.origin,
+            );
+
+            if (!match) {
+                if (IFRAME_HANDOFF_DEBUG) {
+                    console.warn("[Parent] rejected: origin/source mismatch", {
+                        eventOrigin: event.origin,
+                        tracked: getTrackedIframes().map(
+                            ({ origin, iframe }) => ({
+                                origin,
+                                src: iframe.src,
+                            }),
+                        ),
+                    });
+                }
+                return;
+            }
+
+            let delta = 0;
+            if (
+                typeof data.deltaY === "number" &&
+                Number.isFinite(data.deltaY)
+            ) {
+                delta = data.deltaY;
+            } else if (data.direction === "down") {
+                delta = 120;
+            } else if (data.direction === "up") {
+                delta = -120;
+            }
+
+            delta = Math.max(-220, Math.min(220, delta));
+            if (delta === 0) {
+                if (IFRAME_HANDOFF_DEBUG) {
+                    console.log("[Parent] ignored: delta resolved to 0");
+                }
+                return;
+            }
+
+            if (IFRAME_HANDOFF_DEBUG) {
+                console.log("[Parent] scrolling outer page", { delta });
+            }
+
+            window.scrollBy({ top: delta, behavior: "auto" });
+        });
+    }
+</script>

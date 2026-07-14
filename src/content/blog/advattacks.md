@@ -8,6 +8,4 @@ tags: [Machine Learning, Deep Learning, DNNs, CNNs, Adversarial Attacks, Python,
 
 
 
-For a univeristy computer science group project, we were working on a project to develop a simple game with the only restriction being the theme "Gravity". Out Slingshot game is developed using the Godot Engine and GDScript. The game is a 2D physics-based game where the player has to accelerate a rocket. 
-
-Play the game at [itch.io](https://epsilon-five.itch.io/slingshot) 
+For a computer science group project, I have been part of a project to visualize adversarial attacks on Deep Neural Networks (DNNs). The goal of the project was to understand how adversarial attacks work and how they can be visualized. 

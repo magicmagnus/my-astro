@@ -10,33 +10,35 @@ tags: [Web Development, JavaScript, React, ThingsSpeak]
 import HeroProject from "../../components/HeroProject.astro"
 
 
-<div class="hidden lg:block">
+<div class="mx-auto max-w-sm lg:max-w-5xl">
+    <div class="hidden lg:block">
     
-    <HeroProject
-        title="Dashboard"
-        description="A dashboard for monitoring temperature and humidity data from a Raspberry Pi. Built with React, Tailwind CSS and Chart.js."
-        url="https://pi-dashboard.netlify.app/"
-        alingLeft={true}
-        scale={0.5}
-        iframeWidth={1190}
-        iframeHeight={910}
-        previewWidth={600}
-        onlyIframe={true}
-    />
-</div>
-<div class="lg:hidden">
+        <HeroProject
+            title="Dashboard"
+            description="A dashboard for monitoring temperature and humidity data from a Raspberry Pi. Built with React, Tailwind CSS and Chart.js."
+            url="https://pi-dashboard.netlify.app/"
+            alingLeft={true}
+            scale={0.5}
+            iframeWidth={1190}
+            iframeHeight={910}
+            previewWidth={600}
+            onlyIframe={true}
+        />
+    </div>
+    <div class="lg:hidden">
     
-    <HeroProject
-        title="Dashboard"
-        description="A dashboard for monitoring temperature and humidity data from a Raspberry Pi. Built with React, Tailwind CSS and Chart.js."
-        url="https://pi-dashboard.netlify.app/"
-        alingLeft={true}
-        scale={0.75}
-        iframeWidth={475}
-        iframeHeight={820}
-        previewWidth={360}
-        onlyIframe={true}
-    />
+        <HeroProject
+            title="Dashboard"
+            description="A dashboard for monitoring temperature and humidity data from a Raspberry Pi. Built with React, Tailwind CSS and Chart.js."
+            url="https://pi-dashboard.netlify.app/"
+            alingLeft={true}
+            scale={0.75}
+            iframeWidth={475}
+            iframeHeight={820}
+            previewWidth={360}
+            onlyIframe={true}
+        />
+    </div>
 </div>
 
 <br />

@@ -37,13 +37,13 @@ posts.forEach((post) => {
     >
         <Header />
         <main
-            class="mx-6 my-4 flex w-full flex-col items-center justify-center"
+            class="flex w-full flex-col items-center justify-center px-6 py-4 md:px-10"
         >
             {
                 Object.keys(postByYear)
                     .sort((a, b) => parseInt(b) - parseInt(a))
                     .map((year) => (
-                        <div class="flex w-full flex-col">
+                        <div class="flex flex-col">
                             <h2 class="mb-10 mt-10 text-3xl font-bold text-ink">
                                 {year}
                             </h2>
