@@ -22,33 +22,16 @@
 <script is:inline>
     const frame = document.getElementById("slingshot-frame");
     const button = document.getElementById("slingshot-thrust");
+    const GAME_ORIGIN = "https://slingshot.magnuskaut.de";
 
     if (frame && button) {
-        const keyOptions = {
-            key: "ArrowUp",
-            code: "ArrowUp",
-            keyCode: 38,
-            which: 38,
-            bubbles: true,
-            cancelable: true,
-        };
-
         let isPressed = false;
-        let canvas = null;
 
-        const getCanvas = () => {
-            try {
-                return frame.contentDocument?.getElementById("canvas") || null;
-            } catch {
-                return null;
-            }
-        };
-
-        const dispatchKey = (type) => {
-            canvas = canvas || getCanvas();
-            if (!canvas) return;
-
-            canvas.dispatchEvent(new KeyboardEvent(type, keyOptions));
+        const sendKey = (type) => {
+            frame.contentWindow?.postMessage(
+                { type: "simulateKey", key: "ArrowUp", eventType: type },
+                GAME_ORIGIN,
+            );
         };
 
         const press = (event) => {
@@ -62,9 +45,7 @@
             }
 
             frame.focus();
-            canvas = getCanvas();
-            canvas?.focus();
-            dispatchKey("keydown");
+            sendKey("keydown");
         };
 
         const release = (event) => {
@@ -72,7 +53,7 @@
 
             if (event) event.preventDefault();
             isPressed = false;
-            dispatchKey("keyup");
+            sendKey("keyup");
 
             if (event && button.hasPointerCapture?.(event.pointerId)) {
                 button.releasePointerCapture(event.pointerId);
@@ -90,7 +71,7 @@
         window.addEventListener("blur", () => {
             if (isPressed) {
                 isPressed = false;
-                dispatchKey("keyup");
+                sendKey("keyup");
             }
         });
     }
